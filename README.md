@@ -1,140 +1,104 @@
+# ☕ Coffee Shop — Angular
 
-# NOIRÉ — Coffee Shop ☕
+A modern, responsive coffee shop website built with **Angular** and **SCSS**, featuring an elegant design, warm coffee-inspired colors, and a smooth shopping experience.
 
-A modern and elegant coffee shop website built with **Angular 21**, TypeScript, SCSS, and HTML.
+## 📸 Screenshots
 
-## Website Preview
+### Homepage
 
-![NOIRÉ Coffee Shop](./screenshots/coffee-shop-homepage.jpg)
+![Coffee Shop Homepage](./screenshots/web%201.jpg)
 
-## About The Project
+## ✨ Features
 
-NOIRÉ is a modern coffee shop website inspired by premium coffee brands. It features an elegant design, warm colors, beautiful coffee photography, and a smooth shopping experience.
-
-## Features
-
-- Modern and responsive homepage
-- Elegant navigation bar
-- Hero section with coffee photography
-- About NOIRÉ section
-- Coffee collections
-- Hot Coffee and Iced Coffee categories
-- Fresh pastries collection
-- Featured products and favorites
-- Product cards with prices
-- Shopping cart
-- Checkout page
+- Modern and responsive design
+- Home page with hero section and featured products
+- Menu page with coffee products and categories
 - About page
 - Contact page
-- Customer testimonials
-- Newsletter subscription
-- Responsive footer
+- Shopping cart
+- Checkout page
+- Reusable Angular components
+- Responsive navigation bar and footer
+- SCSS styling
 
-## Technologies Used
+## 🛠️ Technologies
 
-- Angular 21
+- Angular
 - TypeScript
 - SCSS
 - HTML5
 - CSS3
-- Angular Router
-- Angular CLI
 
-## Project Structure
+## 📂 Project Structure
 
 ```text
 coffee-shop_angular/
 ├── public/
 ├── src/
-│   ├── app/
-│   │   ├── components/
-│   │   ├── pages/
-│   │   ├── services/
-│   │   ├── app.config.ts
-│   │   ├── app.routes.ts
-│   │   └── app.ts
-│   ├── styles.scss
-│   └── index.html
+│   └── app/
+│       ├── components/
+│       ├── pages/
+│       ├── services/
+│       ├── app.config.ts
+│       ├── app.routes.ts
+│       └── app.ts
 ├── screenshots/
-│   └── coffee-shop-homepage.jpg
+│   └── web 1.jpg
 ├── angular.json
 ├── package.json
 └── README.md
 ```
 
-## Installation
+## 🚀 Getting Started
 
-Clone the repository:
+### 1. Clone the repository
 
 ```bash
-git clone YOUR_GITHUB_REPOSITORY_URL
+git clone https://github.com/diaamohamed26/coffee-shop_angular.js.git
 ```
 
-Navigate to the project:
+### 2. Navigate to the project
 
 ```bash
 cd coffee-shop_angular
 ```
 
-Install dependencies:
+### 3. Install dependencies
 
 ```bash
 npm install
 ```
 
-## Development Server
-
-Run the development server:
+### 4. Run the development server
 
 ```bash
 ng serve
 ```
 
-Open your browser:
+Open your browser at:
 
 ```text
-http://localhost:4200/
+http://localhost:4200
 ```
 
-The application automatically reloads whenever you modify the source files.
+## 🏗️ Build
 
-## Production Build
-
-Build the project:
+To build the project for production:
 
 ```bash
 ng build
 ```
 
-The production build will be generated inside the `dist/` directory.
+The build output will be generated in the `dist/` directory.
 
-## Testing
+## 👨‍💻 Developer
 
-Run unit tests:
-
-```bash
-ng test
-```
-
-## Design Inspiration
-
-The website uses a premium coffee shop aesthetic:
-
-- Warm ivory backgrounds
-- Dark espresso colors
-- Elegant serif typography
-- Italic editorial headings
-- High-quality coffee photography
-- Minimal and clean layouts
-- Smooth and responsive user experience
-
-## Author
-
-**Diaa Mohamed**
+**Diaa Mohamed Abdelazize**
 
 - GitHub: [@diaamohamed26](https://github.com/diaamohamed26)
 - LinkedIn: [Diaa Mohamed](https://linkedin.com/in/diaa-mohamed-a50460125)
+- Behance: [Portfolio](https://www.behance.net/diaamohamed119)
 
 ---
 
-Made with ☕ and Angular.
+⭐ If you like this project, feel free to give it a star!
