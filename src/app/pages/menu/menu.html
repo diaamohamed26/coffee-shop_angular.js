@@ -1,0 +1,163 @@
+
+<section class="menu-page">
+
+  <!-- Hero -->
+  <header class="menu-hero">
+    <div class="menu-hero-overlay"></div>
+
+    <div class="menu-hero-content">
+      <span class="eyebrow">DISCOVER OUR COLLECTION</span>
+
+      <h1>Our <span>Menu</span></h1>
+
+      <p>
+        Carefully crafted coffee, fresh pastries, and unforgettable
+        flavors. Find your new favorite.
+      </p>
+
+      <a routerLink="/" class="hero-link">
+        BACK TO HOME
+        <span>↗</span>
+      </a>
+    </div>
+
+    <div class="hero-bottom-label">
+      <span>CRAFTED WITH PASSION</span>
+      <span>EST. 2026</span>
+    </div>
+  </header>
+
+  <!-- Menu Content -->
+  <section class="menu-section">
+
+    <div class="menu-heading">
+      <div>
+        <span class="section-eyebrow">MADE FOR YOUR MOMENT</span>
+        <h2>Explore Our <span>Selection</span></h2>
+        <p>
+          From your morning espresso to an afternoon sweet treat.
+        </p>
+      </div>
+
+      <a routerLink="/cart" class="view-cart">
+        <span class="cart-icon">♧</span>
+        View Cart
+        <span class="cart-count">
+          {{ cartService.cartCount() }}
+        </span>
+      </a>
+    </div>
+
+    <!-- Filters -->
+    <div class="menu-toolbar">
+
+      <div class="category-filters">
+        @for (category of categories; track category) {
+          <button
+            type="button"
+            class="category-button"
+            [class.active]="selectedCategory() === category"
+            (click)="selectCategory(category)"
+          >
+            {{ category }}
+          </button>
+        }
+      </div>
+
+      <div class="search-box">
+        <span class="search-icon">⌕</span>
+
+        <input
+          type="search"
+          placeholder="Search our menu..."
+          [value]="searchQuery()"
+          (input)="onSearchChange($event)"
+          aria-label="Search menu products"
+        />
+
+        @if (searchQuery()) {
+          <button
+            type="button"
+            class="clear-search"
+            (click)="clearSearch()"
+            aria-label="Clear search"
+          >
+            ×
+          </button>
+        }
+      </div>
+
+    </div>
+
+    <!-- Results -->
+    <div class="results-info">
+      <p>
+        Showing
+        <strong>{{ filteredProducts().length }}</strong>
+        {{ filteredProducts().length === 1 ? 'product' : 'products' }}
+      </p>
+
+      @if (selectedCategory() !== 'All' || searchQuery()) {
+        <button
+          type="button"
+          class="reset-filters"
+          (click)="selectCategory('All'); clearSearch()"
+        >
+          Clear filters
+        </button>
+      }
+    </div>
+
+    <!-- Products -->
+    <div class="products-grid">
+      @for (product of filteredProducts(); track product.id) {
+        <app-product-card [product]="product" />
+      } @empty {
+        <div class="empty-products">
+          <span class="empty-icon">☕</span>
+          <h3>No products found</h3>
+          <p>
+            We couldn't find anything matching your search.
+            Try another product or category.
+          </p>
+
+          <button
+            type="button"
+            (click)="selectCategory('All'); clearSearch()"
+          >
+            View All Products
+          </button>
+        </div>
+      }
+    </div>
+
+  </section>
+
+  <!-- Promotional Banner -->
+  <section class="menu-promo">
+    <div class="promo-content">
+      <span class="section-eyebrow">A LITTLE SOMETHING EXTRA</span>
+
+      <h2>Good Coffee.<br /><span>Better Moments.</span></h2>
+
+      <p>
+        Your perfect coffee moment is just one click away.
+        Explore our collection and find your favorite.
+      </p>
+
+      <a routerLink="/cart" class="promo-button">
+        ORDER YOUR FAVORITE
+        <span>↗</span>
+      </a>
+    </div>
+
+    <div class="promo-image">
+      <img
+        src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=1000"
+        alt="Freshly prepared coffee"
+        loading="lazy"
+      />
+    </div>
+  </section>
+
+</section>

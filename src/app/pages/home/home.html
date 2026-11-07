@@ -1,0 +1,286 @@
+
+<div class="home-page">
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-background"></div>
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+      <span class="hero-eyebrow">
+        <span class="eyebrow-line"></span>
+        YOUR DAILY COFFEE RITUAL
+      </span>
+
+      <h1>
+        Life Begins<br />
+        After <span>Coffee.</span>
+      </h1>
+
+      <p>
+        Discover exceptional coffee, thoughtfully crafted drinks,
+        and little moments that make every day better.
+      </p>
+
+      <div class="hero-actions">
+        <a routerLink="/menu" class="primary-button">
+          EXPLORE OUR MENU
+          <span>↗</span>
+        </a>
+
+        <a routerLink="/about" class="secondary-button">
+          OUR STORY
+          <span>→</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-bottom">
+      <span>CRAFTED WITH PASSION. SERVED WITH LOVE.</span>
+      <span>SCROLL TO DISCOVER ↓</span>
+    </div>
+
+    <div class="hero-side-text">NOIRÉ COFFEE EXPERIENCE</div>
+  </section>
+
+  <!-- Introduction -->
+  <section class="intro-section">
+    <div class="intro-label">
+      <span class="section-eyebrow">WELCOME TO NOIRÉ</span>
+    </div>
+
+    <div class="intro-content">
+      <h2>
+        More Than Coffee.<br />
+        <span>A Feeling.</span>
+      </h2>
+
+      <p>
+        We believe great coffee is about more than what's in your cup.
+        It's about the conversations, the quiet mornings, and the
+        unforgettable moments in between.
+      </p>
+
+      <a routerLink="/about" class="text-link">
+        DISCOVER OUR STORY
+        <span>↗</span>
+      </a>
+    </div>
+
+    <div class="intro-decoration">N.</div>
+  </section>
+
+  <!-- Categories -->
+  <section class="categories-section">
+    <div class="section-heading">
+      <div>
+        <span class="section-eyebrow">FIND YOUR FAVORITE</span>
+        <h2>Explore Our <span>Collections</span></h2>
+      </div>
+
+      <a routerLink="/menu" class="text-link">
+        VIEW ALL MENU
+        <span>↗</span>
+      </a>
+    </div>
+
+    <div class="categories-grid">
+      @for (category of categories; track category.name; let i = $index) {
+        <a
+          class="category-card"
+          [routerLink]="category.link"
+        >
+          <div class="category-image">
+            <img
+              [src]="category.image"
+              [alt]="category.name"
+              loading="lazy"
+            />
+
+            <div class="category-overlay"></div>
+
+            <span class="category-number">
+              0{{ i + 1 }}
+            </span>
+
+            <span class="category-arrow">↗</span>
+          </div>
+
+          <div class="category-info">
+            <div>
+              <h3>{{ category.name }}</h3>
+              <p>{{ category.description }}</p>
+            </div>
+
+            <span class="category-link-arrow">→</span>
+          </div>
+        </a>
+      }
+    </div>
+  </section>
+
+  <!-- Featured Products -->
+  <section class="featured-section">
+    <div class="section-heading">
+      <div>
+        <span class="section-eyebrow">HANDPICKED FOR YOU</span>
+        <h2>Our <span>Favorites</span></h2>
+        <p class="heading-description">
+          A selection of the drinks and treats our customers love most.
+        </p>
+      </div>
+
+      <a routerLink="/menu" class="text-link">
+        EXPLORE FULL MENU
+        <span>↗</span>
+      </a>
+    </div>
+
+    <div class="featured-grid">
+      @for (product of featuredProducts; track product.id) {
+        <app-product-card [product]="product" />
+      }
+    </div>
+  </section>
+
+  <!-- Brand Story -->
+  <section class="story-section">
+    <div class="story-image">
+      <img
+        src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=1200"
+        alt="A freshly prepared cup of coffee"
+        loading="lazy"
+      />
+
+      <div class="story-image-caption">
+        <span>THE ART OF SLOW LIVING</span>
+      </div>
+    </div>
+
+    <div class="story-content">
+      <span class="section-eyebrow">A LITTLE ABOUT US</span>
+
+      <h2>
+        Crafted With<br />
+        <span>Purpose & Passion.</span>
+      </h2>
+
+      <p>
+        At NOIRÉ, every detail matters. From the beans we select
+        to the final touch in every cup, we're here to make your
+        coffee experience something special.
+      </p>
+
+      <p>
+        Take a moment, enjoy the aroma, and make yourself at home.
+      </p>
+
+      <a routerLink="/about" class="dark-button">
+        GET TO KNOW US
+        <span>↗</span>
+      </a>
+
+      <div class="story-signature">NOIRÉ.</div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="features-section">
+    <div class="features-heading">
+      <span class="section-eyebrow">THE NOIRÉ DIFFERENCE</span>
+      <h2>Every Cup Has <span>Its Story.</span></h2>
+    </div>
+
+    <div class="features-grid">
+      @for (feature of features; track feature.title) {
+        <div class="feature-card">
+          <div class="feature-icon">{{ feature.icon }}</div>
+          <h3>{{ feature.title }}</h3>
+          <p>{{ feature.description }}</p>
+        </div>
+      }
+    </div>
+  </section>
+
+  <!-- Promotional Banner -->
+  <section class="promo-section">
+    <div class="promo-image">
+      <img
+        src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=1400"
+        alt="Coffee beans and freshly brewed coffee"
+        loading="lazy"
+      />
+    </div>
+
+    <div class="promo-overlay"></div>
+
+    <div class="promo-content">
+      <span class="section-eyebrow">YOUR NEXT FAVORITE IS WAITING</span>
+
+      <h2>
+        Make Today<br />
+        <span>A Little Better.</span>
+      </h2>
+
+      <p>
+        Discover your perfect cup and bring a little NOIRÉ
+        magic into your day.
+      </p>
+
+      <a routerLink="/menu" class="primary-button">
+        ORDER YOUR COFFEE
+        <span>↗</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="testimonials-section">
+    <div class="testimonials-heading">
+      <span class="section-eyebrow">KIND WORDS</span>
+      <h2>Love From Our <span>Community.</span></h2>
+    </div>
+
+    <div class="testimonials-grid">
+      @for (testimonial of testimonials; track testimonial.name) {
+        <article class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+
+          <p class="testimonial-quote">
+            “{{ testimonial.quote }}”
+          </p>
+
+          <div class="testimonial-author">
+            <div class="author-avatar">
+              {{ testimonial.name.charAt(0) }}
+            </div>
+
+            <div>
+              <h3>{{ testimonial.name }}</h3>
+              <span>{{ testimonial.role }}</span>
+            </div>
+          </div>
+        </article>
+      }
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="final-cta">
+    <span class="section-eyebrow">GOOD COFFEE IS ALWAYS A GOOD IDEA</span>
+
+    <h2>
+      Your Table Is <span>Waiting.</span>
+    </h2>
+
+    <p>
+      Explore our menu and find something you'll love.
+    </p>
+
+    <a routerLink="/menu" class="dark-button">
+      EXPLORE NOIRÉ MENU
+      <span>↗</span>
+    </a>
+  </section>
+
+</div>

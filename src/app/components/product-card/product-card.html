@@ -1,0 +1,83 @@
+
+<article class="product-card">
+
+  <div class="product-image-wrapper">
+
+    <img
+      class="product-image"
+      [src]="product().image"
+      [alt]="product().name"
+      loading="lazy"
+    />
+
+    @if (product().badge) {
+      <span class="product-badge">
+        {{ product().badge }}
+      </span>
+    }
+
+    <button
+      class="quick-add"
+      type="button"
+      (click)="addToCart()"
+      [attr.aria-label]="'Add ' + product().name + ' to cart'"
+    >
+      <span>+</span>
+      <span class="quick-add-text">Quick Add</span>
+    </button>
+
+    @if (quantity > 0) {
+      <span class="cart-indicator">
+        {{ quantity }} in cart
+      </span>
+    }
+
+  </div>
+
+  <div class="product-info">
+
+    <div class="product-meta">
+      <span class="product-category">
+        {{ product().category }}
+      </span>
+
+      @if (product().rating) {
+        <span class="product-rating">
+          <span class="star">★</span>
+          {{ product().rating }}
+        </span>
+      }
+    </div>
+
+    <h3 class="product-name">
+      {{ product().name }}
+    </h3>
+
+    <p class="product-description">
+      {{ product().description }}
+    </p>
+
+    <div class="product-footer">
+
+      <span class="product-price">
+        {{ product().price }} <small>EGP</small>
+      </span>
+
+      <button
+        class="add-button"
+        type="button"
+        (click)="addToCart()"
+      >
+        @if (quantity > 0) {
+          Add More
+        } @else {
+          Add to Cart
+        }
+        <span>+</span>
+      </button>
+
+    </div>
+
+  </div>
+
+</article>

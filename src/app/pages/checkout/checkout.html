@@ -1,0 +1,382 @@
+
+<!-- Checkout Hero -->
+<section class="checkout-hero">
+  <div class="checkout-hero-content">
+    <span class="eyebrow">ALMOST YOURS</span>
+    <h1>Complete your <em>order.</em></h1>
+    <p>A few details, and your NOIRÉ experience is one step closer.</p>
+  </div>
+</section>
+
+<section class="checkout-section">
+  <div class="checkout-container">
+
+    @if (orderSubmitted()) {
+
+      <!-- Order Confirmation -->
+      <div class="order-success">
+        <div class="success-icon">✓</div>
+
+        <span class="eyebrow">THANK YOU FOR CHOOSING NOIRÉ</span>
+
+        <h2>Your order is <em>confirmed.</em></h2>
+
+        <p>
+          Your demo checkout has been completed successfully.
+          This confirmation is displayed locally and has not been
+          sent to a real store or payment provider.
+        </p>
+
+        <div class="order-reference">
+          <span>DEMO ORDER REFERENCE</span>
+          <strong>{{ orderNumber() }}</strong>
+        </div>
+
+        <a routerLink="/menu" class="primary-button">
+          Continue Shopping
+          <span>↗</span>
+        </a>
+      </div>
+
+    } @else if (cartItems().length === 0) {
+
+      <!-- Empty Checkout -->
+      <div class="empty-checkout">
+        <div class="empty-icon">☕</div>
+
+        <span class="eyebrow">YOUR CART IS EMPTY</span>
+
+        <h2>Nothing to <em>checkout.</em></h2>
+
+        <p>Add something delicious from our menu before continuing.</p>
+
+        <a routerLink="/menu" class="primary-button">
+          Explore Our Menu
+          <span>↗</span>
+        </a>
+      </div>
+
+    } @else {
+
+      <div class="checkout-heading">
+        <div>
+          <span class="eyebrow">SECURE YOUR SELECTION</span>
+          <h2>Checkout</h2>
+          <p>Complete your details to review your order.</p>
+        </div>
+
+        <a routerLink="/cart" class="back-to-cart">
+          ← Back to cart
+        </a>
+      </div>
+
+      <form
+        #checkoutForm="ngForm"
+        (ngSubmit)="submitOrder()"
+        class="checkout-layout"
+      >
+
+        <!-- Customer and Delivery Information -->
+        <div class="checkout-main">
+
+          <!-- Contact Information -->
+          <section class="checkout-card">
+            <div class="card-heading">
+              <span class="step-number">01</span>
+
+              <div>
+                <h3>Contact Information</h3>
+                <p>How can we reach you?</p>
+              </div>
+            </div>
+
+            <div class="form-grid">
+
+              <div class="form-group">
+                <label for="firstName">First Name *</label>
+
+                <input
+                  id="firstName"
+                  name="firstName"
+                  type="text"
+                  [(ngModel)]="form.firstName"
+                  placeholder="Your first name"
+                  autocomplete="given-name"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="lastName">Last Name *</label>
+
+                <input
+                  id="lastName"
+                  name="lastName"
+                  type="text"
+                  [(ngModel)]="form.lastName"
+                  placeholder="Your last name"
+                  autocomplete="family-name"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="email">Email Address *</label>
+
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  [(ngModel)]="form.email"
+                  placeholder="you@example.com"
+                  autocomplete="email"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="phone">Phone Number *</label>
+
+                <input
+                  id="phone"
+                  name="phone"
+                  type="tel"
+                  [(ngModel)]="form.phone"
+                  placeholder="+20 100 000 0000"
+                  autocomplete="tel"
+                  required
+                />
+              </div>
+
+            </div>
+          </section>
+
+          <!-- Delivery Information -->
+          <section class="checkout-card">
+            <div class="card-heading">
+              <span class="step-number">02</span>
+
+              <div>
+                <h3>Delivery Address</h3>
+                <p>Where should we deliver your order?</p>
+              </div>
+            </div>
+
+            <div class="form-grid">
+
+              <div class="form-group full-width">
+                <label for="address">Street Address *</label>
+
+                <input
+                  id="address"
+                  name="address"
+                  type="text"
+                  [(ngModel)]="form.address"
+                  placeholder="Building number, street name"
+                  autocomplete="street-address"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="apartment">Apartment / Floor</label>
+
+                <input
+                  id="apartment"
+                  name="apartment"
+                  type="text"
+                  [(ngModel)]="form.apartment"
+                  placeholder="Apartment, suite, etc."
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="city">City *</label>
+
+                <input
+                  id="city"
+                  name="city"
+                  type="text"
+                  [(ngModel)]="form.city"
+                  placeholder="Your city"
+                  autocomplete="address-level2"
+                  required
+                />
+              </div>
+
+              <div class="form-group full-width">
+                <label for="notes">Delivery Notes</label>
+
+                <textarea
+                  id="notes"
+                  name="notes"
+                  [(ngModel)]="form.notes"
+                  rows="3"
+                  placeholder="Any special instructions for delivery?"
+                ></textarea>
+              </div>
+
+            </div>
+          </section>
+
+          <!-- Payment Method -->
+          <section class="checkout-card">
+            <div class="card-heading">
+              <span class="step-number">03</span>
+
+              <div>
+                <h3>Payment Method</h3>
+                <p>Choose how you would like to pay.</p>
+              </div>
+            </div>
+
+            <div class="payment-options">
+
+              <label
+                class="payment-option"
+                [class.selected]="paymentMethod() === 'cash'"
+              >
+                <input
+                  type="radio"
+                  name="paymentMethod"
+                  value="cash"
+                  [checked]="paymentMethod() === 'cash'"
+                  (change)="paymentMethod.set('cash')"
+                />
+
+                <span class="payment-radio"></span>
+
+                <span class="payment-icon">💵</span>
+
+                <span class="payment-info">
+                  <strong>Cash on Delivery</strong>
+                  <small>Pay when your order arrives.</small>
+                </span>
+
+                <span class="payment-tag">AVAILABLE</span>
+              </label>
+
+              <label
+                class="payment-option"
+                [class.selected]="paymentMethod() === 'card'"
+              >
+                <input
+                  type="radio"
+                  name="paymentMethod"
+                  value="card"
+                  [checked]="paymentMethod() === 'card'"
+                  (change)="paymentMethod.set('card')"
+                />
+
+                <span class="payment-radio"></span>
+
+                <span class="payment-icon">💳</span>
+
+                <span class="payment-info">
+                  <strong>Online Card Payment</strong>
+                  <small>Demo selection only. No payment is processed.</small>
+                </span>
+
+                <span class="payment-tag coming-soon">DEMO</span>
+              </label>
+
+            </div>
+          </section>
+
+        </div>
+
+        <!-- Order Summary -->
+        <aside class="checkout-summary">
+
+          <span class="eyebrow">YOUR SELECTION</span>
+          <h3>Order Summary</h3>
+
+          <div class="summary-products">
+
+            @for (item of cartItems(); track item.id) {
+              <div class="summary-product">
+
+                <div class="summary-product-image">
+                  <img [src]="item.image" [alt]="item.name" />
+
+                  <span class="quantity-badge">
+                    {{ item.quantity }}
+                  </span>
+                </div>
+
+                <div class="summary-product-info">
+                  <strong>{{ item.name }}</strong>
+                  <span>
+                    {{ item.price | currency:'EGP':'symbol':'1.0-0' }}
+                    each
+                  </span>
+                </div>
+
+                <strong class="summary-product-total">
+                  {{
+                    item.price * item.quantity
+                      | currency:'EGP':'symbol':'1.0-0'
+                  }}
+                </strong>
+
+              </div>
+            }
+
+          </div>
+
+          <div class="summary-divider"></div>
+
+          <div class="summary-line">
+            <span>Subtotal</span>
+            <strong>
+              {{ subtotal() | currency:'EGP':'symbol':'1.0-0' }}
+            </strong>
+          </div>
+
+          <div class="summary-line">
+            <span>Shipping</span>
+            <strong>
+              @if (shipping === 0) {
+                Free
+              } @else {
+                {{ shipping | currency:'EGP':'symbol':'1.0-0' }}
+              }
+            </strong>
+          </div>
+
+          <div class="summary-divider"></div>
+
+          <div class="summary-total">
+            <span>Total</span>
+            <strong>
+              {{ total() | currency:'EGP':'symbol':'1.0-0' }}
+            </strong>
+          </div>
+
+          <button
+            type="submit"
+            class="place-order-button"
+            [disabled]="checkoutForm.invalid || cartItems().length === 0"
+          >
+            Place Demo Order
+            <span>↗</span>
+          </button>
+
+          <p class="terms-note">
+            By placing this demo order, you acknowledge that no
+            real payment or delivery request will be created.
+          </p>
+
+          <div class="checkout-security">
+            <span>✓</span>
+            Your information stays in this demo form.
+          </div>
+
+        </aside>
+
+      </form>
+
+    }
+
+  </div>
+</section>

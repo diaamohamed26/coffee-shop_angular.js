@@ -1,0 +1,274 @@
+<!-- Contact Hero -->
+<section class="contact-hero">
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content">
+    <span class="eyebrow">WE WOULD LOVE TO HEAR FROM YOU</span>
+
+    <h1>
+      Let's start a
+      <span>conversation.</span>
+    </h1>
+
+    <p>
+      Questions, feedback, or simply want to say hello?
+      We're always happy to hear from you.
+    </p>
+
+    <a href="#contact-form" class="hero-button">
+      Get in Touch
+      <span>↓</span>
+    </a>
+  </div>
+
+  <div class="hero-caption">
+    <span>NOIRÉ COFFEE</span>
+    <span>CAIRO · EGYPT</span>
+  </div>
+</section>
+
+<!-- Contact Information -->
+<section class="contact-info-section">
+  <div class="section-heading">
+    <span class="eyebrow">GET IN TOUCH</span>
+    <h2>We're just a <em>message away.</em></h2>
+    <p>
+      Whether you have a question, an idea, or want to collaborate,
+      choose the easiest way to reach us.
+    </p>
+  </div>
+
+  <div class="contact-info-grid">
+    @for (item of contactInfo; track item.label) {
+      <a
+        class="contact-info-card"
+        [href]="item.link"
+        [target]="item.label === 'FIND US' ? '_blank' : null"
+        [rel]="item.label === 'FIND US' ? 'noopener noreferrer' : null"
+      >
+        <span class="info-icon">{{ item.icon }}</span>
+        <span class="info-label">{{ item.label }}</span>
+        <span class="info-value">{{ item.value }}</span>
+        <span class="info-arrow">↗</span>
+      </a>
+    }
+  </div>
+</section>
+
+<!-- Contact Form and Image -->
+<section class="contact-main" id="contact-form">
+  <div class="form-side">
+    <div class="form-heading">
+      <span class="eyebrow">SEND US A MESSAGE</span>
+      <h2>Tell us what's <em>on your mind.</em></h2>
+      <p>
+        Fill in the form below and we'll be happy to connect with you.
+      </p>
+    </div>
+
+    @if (!isSubmitted()) {
+      <form #contactForm="ngForm" (ngSubmit)="submitForm()">
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">YOUR NAME *</label>
+            <input
+              id="name"
+              type="text"
+              name="name"
+              [(ngModel)]="name"
+              placeholder="Your full name"
+              required
+              minlength="2"
+              #nameField="ngModel"
+            />
+
+            @if (nameField.invalid && nameField.touched) {
+              <span class="error-message">
+                Please enter your name.
+              </span>
+            }
+          </div>
+
+          <div class="form-group">
+            <label for="email">EMAIL ADDRESS *</label>
+            <input
+              id="email"
+              type="email"
+              name="email"
+              [(ngModel)]="email"
+              placeholder="you@example.com"
+              required
+              email
+              #emailField="ngModel"
+            />
+
+            @if (emailField.invalid && emailField.touched) {
+              <span class="error-message">
+                Please enter a valid email address.
+              </span>
+            }
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="subject">SUBJECT *</label>
+          <input
+            id="subject"
+            type="text"
+            name="subject"
+            [(ngModel)]="subject"
+            placeholder="How can we help?"
+            required
+            #subjectField="ngModel"
+          />
+
+          @if (subjectField.invalid && subjectField.touched) {
+            <span class="error-message">
+              Please enter a subject.
+            </span>
+          }
+        </div>
+
+        <div class="form-group">
+          <label for="message">YOUR MESSAGE *</label>
+          <textarea
+            id="message"
+            name="message"
+            [(ngModel)]="message"
+            placeholder="Write your message here..."
+            rows="6"
+            required
+            minlength="10"
+            #messageField="ngModel"
+          ></textarea>
+
+          @if (messageField.invalid && messageField.touched) {
+            <span class="error-message">
+              Your message must contain at least 10 characters.
+            </span>
+          }
+        </div>
+
+        <button
+          type="submit"
+          class="submit-button"
+          [disabled]="contactForm.invalid || isSubmitting()"
+        >
+          @if (isSubmitting()) {
+            Sending...
+          } @else {
+            Send Message <span>↗</span>
+          }
+        </button>
+      </form>
+    } @else {
+      <div class="success-message">
+        <span class="success-icon">✓</span>
+        <h3>Thank you for reaching out!</h3>
+        <p>
+          Your message has been accepted in this demo.
+          Connect a backend to deliver it to the NOIRÉ team.
+        </p>
+
+        <button type="button" (click)="resetForm()">
+          Send another message
+        </button>
+      </div>
+    }
+  </div>
+
+  <div class="contact-image">
+    <img
+      src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?w=1000&q=90"
+      alt="Warm and welcoming coffee shop interior"
+      loading="lazy"
+    />
+
+    <div class="image-caption">
+      <span class="eyebrow">YOUR PLACE TO UNWIND</span>
+      <h3>Good coffee.<br /><em>Good company.</em></h3>
+    </div>
+  </div>
+</section>
+
+<!-- Opening Hours -->
+<section class="hours-section">
+  <div class="hours-image">
+    <img
+      src="https://images.unsplash.com/photo-1493857671505-72967e2e2760?w=1000&q=85"
+      alt="Coffee shop atmosphere"
+      loading="lazy"
+    />
+  </div>
+
+  <div class="hours-content">
+    <span class="eyebrow">PLAN YOUR VISIT</span>
+    <h2>There's always time for <em>coffee.</em></h2>
+
+    <p>
+      Stop by, take a break, and enjoy a moment made just for you.
+    </p>
+
+    <div class="hours-list">
+      @for (item of openingHours; track item.day) {
+        <div class="hours-row">
+          <span>{{ item.day }}</span>
+          <span>{{ item.hours }}</span>
+        </div>
+      }
+    </div>
+
+    <span class="hours-note">
+      * Opening hours are illustrative. Please confirm before visiting.
+    </span>
+  </div>
+</section>
+
+<!-- Location -->
+<section class="location-section">
+  <div class="location-content">
+    <span class="eyebrow">COME FIND US</span>
+    <h2>Meet us in <em>Cairo.</em></h2>
+    <p>
+      We'd love to welcome you for your next coffee break.
+      Get directions and plan your visit.
+    </p>
+
+    <a
+      href="https://www.google.com/maps/search/?api=1&query=Cairo%2C+Egypt"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="location-button"
+    >
+      Get Directions <span>↗</span>
+    </a>
+  </div>
+
+  <div class="map-placeholder">
+    <div class="map-card">
+      <span class="map-pin">⌖</span>
+      <h3>NOIRÉ Coffee</h3>
+      <p>Cairo, Egypt</p>
+
+      <a
+        href="https://www.google.com/maps/search/?api=1&query=Cairo%2C+Egypt"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Open in Google Maps ↗
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Final CTA -->
+<section class="contact-cta">
+  <span class="eyebrow">UNTIL WE MEET</span>
+  <h2>Life is better with <em>a good cup.</em></h2>
+  <p>Explore our menu and find your next favorite.</p>
+
+  <a routerLink="/menu" class="cta-button">
+    Explore Our Menu <span>↗</span>
+  </a>
+</section>

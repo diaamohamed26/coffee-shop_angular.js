@@ -1,0 +1,195 @@
+
+<footer class="site-footer">
+
+  <!-- Newsletter Section -->
+  <section class="newsletter-section">
+
+    <div class="newsletter-container">
+
+      <div class="newsletter-content">
+        <span class="eyebrow">A LITTLE SOMETHING EXTRA</span>
+
+        <h2>
+          Good Coffee.<br />
+          Great News.
+        </h2>
+
+        <p>
+          Join the NOIRÉ community and discover new blends,
+          exclusive offers, coffee stories and brewing inspiration.
+        </p>
+      </div>
+
+      <div class="newsletter-action">
+
+        @if (!subscribed) {
+          <form
+            class="newsletter-form"
+            (submit)="subscribe($event)"
+          >
+            <input
+              type="email"
+              name="email"
+              placeholder="Enter your email address"
+              aria-label="Email address"
+              [value]="email"
+              (input)="email = $any($event.target).value"
+              required
+            />
+
+            <button type="submit">
+              Subscribe <span>→</span>
+            </button>
+          </form>
+
+          <span class="newsletter-note">
+            By subscribing, you agree to receive updates from NOIRÉ.
+          </span>
+        } @else {
+          <div class="success-message">
+            <span>✓</span>
+            <div>
+              <h3>You're on the list!</h3>
+              <p>Thank you for joining the NOIRÉ community.</p>
+            </div>
+          </div>
+        }
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Main Footer -->
+  <section class="footer-main">
+
+    <!-- Brand Column -->
+    <div class="footer-brand">
+
+      <a routerLink="/" class="footer-logo">
+        NOIRÉ
+      </a>
+
+      <span class="footer-brand-subtitle">
+        SPECIALTY COFFEE
+      </span>
+
+      <p class="brand-description">
+        More than coffee. A moment of comfort,
+        a ritual of passion, and a better way
+        to experience every day.
+      </p>
+
+      <div class="social-links">
+
+        <a
+          href="https://instagram.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Instagram"
+        >
+          ig
+        </a>
+
+        <a
+          href="https://facebook.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Facebook"
+        >
+          f
+        </a>
+
+        <a
+          href="https://tiktok.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="TikTok"
+        >
+          ♪
+        </a>
+
+      </div>
+
+    </div>
+
+    <!-- Shop -->
+    <div class="footer-column">
+      <h3>Explore</h3>
+
+      <a routerLink="/">Home</a>
+      <a routerLink="/menu">Our Menu</a>
+      <a routerLink="/menu">Coffee Blends</a>
+      <a routerLink="/menu">Specialty Coffee</a>
+      <a routerLink="/cart">Shopping Cart</a>
+    </div>
+
+    <!-- Company -->
+    <div class="footer-column">
+      <h3>Discover NOIRÉ</h3>
+
+      <a routerLink="/about">Our Story</a>
+      <a routerLink="/about">Our Philosophy</a>
+      <a routerLink="/about">Our Coffee</a>
+      <a routerLink="/contact">Contact Us</a>
+    </div>
+
+    <!-- Support -->
+    <div class="footer-column">
+      <h3>Customer Care</h3>
+
+      <a routerLink="/contact">Get in Touch</a>
+      <a routerLink="/contact">Shipping Information</a>
+      <a routerLink="/contact">Returns & Refunds</a>
+      <a routerLink="/contact">Frequently Asked Questions</a>
+    </div>
+
+    <!-- Contact -->
+    <div class="footer-column contact-column">
+      <h3>Say Hello</h3>
+
+      <a href="mailto:hello@noirecoffee.com">
+        <span>✉</span>
+        hello@noirecoffee.com
+      </a>
+
+      <a href="tel:+201000000000">
+        <span>☎</span>
+        +20 100 000 0000
+      </a>
+
+      <p>
+        <span>⌖</span>
+        Cairo, Egypt
+      </p>
+
+      <div class="contact-note">
+        <span>✦</span>
+        GOOD COFFEE. BETTER MOMENTS.
+      </div>
+    </div>
+
+  </section>
+
+  <!-- Bottom Footer -->
+  <section class="footer-bottom">
+
+    <p>
+      © {{ currentYear }} NOIRÉ Coffee.
+      All rights reserved.
+    </p>
+
+    <div class="footer-legal">
+      <a routerLink="/contact">Privacy Policy</a>
+      <a routerLink="/contact">Terms & Conditions</a>
+    </div>
+
+    <div class="payment-methods">
+      <span>VISA</span>
+      <span>MASTER CARD</span>
+      <span>CASH</span>
+    </div>
+
+  </section>
+
+</footer>

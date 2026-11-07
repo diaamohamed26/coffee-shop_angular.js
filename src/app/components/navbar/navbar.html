@@ -1,0 +1,116 @@
+
+<header class="site-header">
+
+  <!-- Announcement Bar -->
+  <div class="announcement-bar">
+    <p>
+      A BETTER DAY STARTS WITH BETTER COFFEE.
+      <a routerLink="/menu">EXPLORE OUR MENU ↗</a>
+    </p>
+  </div>
+
+  <!-- Main Navbar -->
+  <nav class="navbar">
+
+    <div class="navbar-container">
+
+      <!-- Logo -->
+      <a
+        routerLink="/"
+        class="brand"
+        aria-label="NOIRÉ Home"
+        (click)="closeMenu()"
+      >
+        <span class="brand-name">NOIRÉ<span>.</span></span>
+        <span class="brand-subtitle">COFFEE HOUSE</span>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <div class="desktop-navigation">
+        @for (link of navLinks; track link.path) {
+          <a
+            [routerLink]="link.path"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: link.path === '/' }"
+            class="nav-link"
+          >
+            {{ link.label }}
+          </a>
+        }
+      </div>
+
+      <!-- Navbar Actions -->
+      <div class="navbar-actions">
+
+        <a routerLink="/cart" class="cart-link" aria-label="Shopping cart">
+          <span class="cart-icon">♧</span>
+
+          <span class="cart-label">Cart</span>
+
+          @if (cartService.cartCount() > 0) {
+            <span class="cart-count">
+              {{ cartService.cartCount() }}
+            </span>
+          }
+        </a>
+
+        <a routerLink="/menu" class="shop-button">
+          SHOP NOW
+          <span>↗</span>
+        </a>
+
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button
+        class="mobile-menu-button"
+        type="button"
+        (click)="toggleMenu()"
+        [attr.aria-expanded]="isMenuOpen()"
+        aria-label="Toggle navigation menu"
+      >
+        <span [class.open]="isMenuOpen()"></span>
+        <span [class.open]="isMenuOpen()"></span>
+      </button>
+
+    </div>
+
+    <!-- Mobile Navigation -->
+    <div
+      class="mobile-navigation"
+      [class.mobile-navigation-open]="isMenuOpen()"
+      [attr.inert]="!isMenuOpen() ? '' : null"
+    >
+      @for (link of navLinks; track link.path) {
+        <a
+          [routerLink]="link.path"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: link.path === '/' }"
+          class="mobile-nav-link"
+          (click)="closeMenu()"
+        >
+          {{ link.label }}
+          <span>↗</span>
+        </a>
+      }
+
+      <a
+        routerLink="/cart"
+        class="mobile-cart-link"
+        (click)="closeMenu()"
+      >
+        Shopping Cart
+        <span>{{ cartService.cartCount() }}</span>
+      </a>
+
+      <a
+        routerLink="/menu"
+        class="mobile-shop-button"
+        (click)="closeMenu()"
+      >
+        EXPLORE MENU ↗
+      </a>
+    </div>
+
+  </nav>
+</header>

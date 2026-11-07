@@ -1,0 +1,204 @@
+<!-- About Hero -->
+<section class="about-hero">
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content">
+    <span class="eyebrow">OUR STORY · NOIRÉ COFFEE</span>
+
+    <h1>
+      More than coffee.
+      <span>A feeling.</span>
+    </h1>
+
+    <p>
+      We believe the best moments happen when you slow down,
+      take a breath, and enjoy something beautiful.
+    </p>
+
+    <a routerLink="/menu" class="hero-button">
+      Discover Our Coffee
+      <span>↗</span>
+    </a>
+  </div>
+
+  <div class="hero-caption">
+    <span>CRAFTED WITH PASSION</span>
+    <span>CAIRO · EGYPT</span>
+  </div>
+</section>
+
+<!-- Brand Introduction -->
+<section class="brand-intro">
+  <div class="intro-label">
+    <span class="eyebrow">A LITTLE ABOUT US</span>
+    <span class="intro-line"></span>
+  </div>
+
+  <div class="intro-content">
+    <h2>
+      Coffee is not just
+      <em>a drink.</em>
+      It's a moment worth enjoying.
+    </h2>
+
+    <div class="intro-description">
+      <p>
+        At NOIRÉ, we see coffee as more than a daily routine.
+        It's a reason to pause, reconnect, discover new flavors,
+        and make ordinary moments extraordinary.
+      </p>
+
+      <p>
+        From the first aroma to the final sip, we care about
+        the experience behind every cup. Simple ingredients,
+        thoughtful preparation, and a welcoming atmosphere
+        are at the heart of everything we do.
+      </p>
+
+      <a routerLink="/menu" class="text-link">
+        Explore Our Menu <span>↗</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Story Image -->
+<section class="story-gallery">
+  <div class="gallery-main">
+    <img
+      src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=1200&q=90"
+      alt="Freshly prepared coffee"
+      loading="lazy"
+    />
+    <span class="image-caption">THE ART OF SLOWING DOWN</span>
+  </div>
+
+  <div class="gallery-side">
+    <img
+      src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=800&q=85"
+      alt="Coffee brewing"
+      loading="lazy"
+    />
+
+    <div class="gallery-quote">
+      <span class="quote-mark">“</span>
+      <p>
+        Good coffee is an experience.
+        Great coffee is a memory.
+      </p>
+      <span class="quote-author">THE NOIRÉ PHILOSOPHY</span>
+    </div>
+  </div>
+</section>
+
+<!-- Philosophy -->
+<section class="philosophy-section">
+  <div class="philosophy-heading">
+    <span class="eyebrow">WHAT WE BELIEVE IN</span>
+    <h2>
+      The little things
+      <em>matter.</em>
+    </h2>
+    <p>
+      Our philosophy is simple: care about the details,
+      appreciate the process, and always make room for a better cup.
+    </p>
+  </div>
+
+  <div class="values-grid">
+    @for (value of values; track value.number) {
+      <article class="value-card">
+        <div class="value-top">
+          <span class="value-number">{{ value.number }}</span>
+          <span class="value-icon">{{ value.icon }}</span>
+        </div>
+
+        <h3>{{ value.title }}</h3>
+        <p>{{ value.description }}</p>
+      </article>
+    }
+  </div>
+</section>
+
+<!-- Timeline -->
+<section class="journey-section">
+  <div class="journey-heading">
+    <span class="eyebrow">THE JOURNEY</span>
+    <h2>A story brewed <em>with purpose.</em></h2>
+    <p>
+      Every great experience begins with an idea.
+      Here's the philosophy behind NOIRÉ.
+    </p>
+  </div>
+
+  <div class="journey-list">
+    @for (milestone of milestones; track milestone.year; let i = $index) {
+      <article class="journey-item">
+        <span class="journey-number">0{{ i + 1 }}</span>
+
+        <div class="journey-year">
+          {{ milestone.year }}
+        </div>
+
+        <div class="journey-details">
+          <h3>{{ milestone.title }}</h3>
+          <p>{{ milestone.description }}</p>
+        </div>
+      </article>
+    }
+  </div>
+</section>
+
+<!-- Coffee Experience Banner -->
+<section class="experience-banner">
+  <div class="experience-overlay"></div>
+
+  <div class="experience-content">
+    <span class="eyebrow">YOUR NEXT FAVORITE CUP</span>
+
+    <h2>
+      Take a moment.
+      <em>Make it yours.</em>
+    </h2>
+
+    <p>
+      Discover the NOIRÉ experience, one cup at a time.
+    </p>
+
+    <a routerLink="/menu" class="experience-button">
+      Explore Our Menu
+      <span>↗</span>
+    </a>
+  </div>
+</section>
+
+<!-- Visit Section -->
+<section class="visit-section">
+  <div class="visit-content">
+    <span class="eyebrow">COME SAY HELLO</span>
+    <h2>There is always room for <em>one more cup.</em></h2>
+    <p>
+      Whether it's your morning ritual, an afternoon break,
+      or a catch-up with friends, we'd love to be part of your day.
+    </p>
+
+    <div class="visit-actions">
+      <a routerLink="/contact" class="visit-button">
+        Get in Touch
+        <span>↗</span>
+      </a>
+
+      <a routerLink="/menu" class="visit-secondary">
+        View Menu
+      </a>
+    </div>
+  </div>
+
+  <div class="visit-image">
+    <img
+      src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?w=1000&q=85"
+      alt="Cozy coffee shop interior"
+      loading="lazy"
+    />
+  </div>
+</section>
