@@ -1,60 +1,140 @@
-# CoffeeShop
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.21.
+# NOIRÉ — Coffee Shop ☕
 
-## Development server
+A modern and elegant coffee shop website built with **Angular 21**, TypeScript, SCSS, and HTML.
 
-To start a local development server, run:
+## Website Preview
+
+![NOIRÉ Coffee Shop](./screenshots/coffee-shop-homepage.jpg)
+
+## About The Project
+
+NOIRÉ is a modern coffee shop website inspired by premium coffee brands. It features an elegant design, warm colors, beautiful coffee photography, and a smooth shopping experience.
+
+## Features
+
+- Modern and responsive homepage
+- Elegant navigation bar
+- Hero section with coffee photography
+- About NOIRÉ section
+- Coffee collections
+- Hot Coffee and Iced Coffee categories
+- Fresh pastries collection
+- Featured products and favorites
+- Product cards with prices
+- Shopping cart
+- Checkout page
+- About page
+- Contact page
+- Customer testimonials
+- Newsletter subscription
+- Responsive footer
+
+## Technologies Used
+
+- Angular 21
+- TypeScript
+- SCSS
+- HTML5
+- CSS3
+- Angular Router
+- Angular CLI
+
+## Project Structure
+
+```text
+coffee-shop_angular/
+├── public/
+├── src/
+│   ├── app/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   ├── services/
+│   │   ├── app.config.ts
+│   │   ├── app.routes.ts
+│   │   └── app.ts
+│   ├── styles.scss
+│   └── index.html
+├── screenshots/
+│   └── coffee-shop-homepage.jpg
+├── angular.json
+├── package.json
+└── README.md
+```
+
+## Installation
+
+Clone the repository:
+
+```bash
+git clone YOUR_GITHUB_REPOSITORY_URL
+```
+
+Navigate to the project:
+
+```bash
+cd coffee-shop_angular
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+## Development Server
+
+Run the development server:
 
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Open your browser:
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
+```text
+http://localhost:4200/
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+The application automatically reloads whenever you modify the source files.
 
-```bash
-ng generate --help
-```
+## Production Build
 
-## Building
-
-To build the project run:
+Build the project:
 
 ```bash
 ng build
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+The production build will be generated inside the `dist/` directory.
 
-## Running unit tests
+## Testing
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+Run unit tests:
 
 ```bash
 ng test
 ```
 
-## Running end-to-end tests
+## Design Inspiration
 
-For end-to-end (e2e) testing, run:
+The website uses a premium coffee shop aesthetic:
 
-```bash
-ng e2e
-```
+- Warm ivory backgrounds
+- Dark espresso colors
+- Elegant serif typography
+- Italic editorial headings
+- High-quality coffee photography
+- Minimal and clean layouts
+- Smooth and responsive user experience
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+## Author
 
-## Additional Resources
+**Diaa Mohamed**
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
-# coffee-shop_angular.js
+- GitHub: [@diaamohamed26](https://github.com/diaamohamed26)
+- LinkedIn: [Diaa Mohamed](https://linkedin.com/in/diaa-mohamed-a50460125)
+
+---
+
+Made with ☕ and Angular.
