@@ -18,16 +18,16 @@ concurrency:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
-          node-version: 22
+          node-version: 24
           cache: npm
 
       - name: Install dependencies
@@ -36,14 +36,19 @@ jobs:
       - name: Build Angular
         run: npm run build -- --base-href /coffee-shop_angular.js/
 
-      - name: Upload build artifact
-        uses: actions/upload-pages-artifact@v3
+      - name: Verify output
+        run: |
+          find dist/coffee-shop -name index.html
+          test -f dist/coffee-shop/index.html
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v4
         with:
           path: dist/coffee-shop
 
   deploy:
     needs: build
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
 
     environment:
       name: github-pages
